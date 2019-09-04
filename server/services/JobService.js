@@ -2,11 +2,10 @@ import mongoose from "mongoose"
 const Schema = mongoose.Schema
 
 const _model = new Schema({
-  make: { type: String, required: true },
-  model: { type: String, required: true },
-  year: { type: Number, required: true },
-  price: { type: Number, required: true },
-  imgUrl: { type: String, default: "http://placehold.it/200x200" },
+  company: { type: String, required: true },
+  jobTitle: { type: String, required: true },
+  hours: { type: Number, required: true },
+  rate: { type: Number, required: true },
   description: { type: String }
 })
 export default class JobService {
