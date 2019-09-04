@@ -38,10 +38,12 @@ server.use(bp.json())
 //NOTE we have to import access to our controllers
 import CarController from './controllers/CarController'
 import JobController from './controllers/JobController'
+import HouseController from './controllers/HouseController'
 
 //NOTE remember the forward slash at the start of your path!
 server.use('/api/cars', new CarController().router)
 server.use('/api/jobs', new JobController().router)
+server.use('/api/houses', new HouseController().router)
 
 
 

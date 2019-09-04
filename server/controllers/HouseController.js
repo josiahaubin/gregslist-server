@@ -1,9 +1,9 @@
 import express from "express"
-import JobService from "../services/JobService";
+import HouseService from "../services/HouseService";
 
-let _js = new JobService().respository
+let _hs = new HouseService().respository
 
-export default class JobController {
+export default class HouseController {
 
   constructor() {
     this.router = express.Router()
@@ -16,32 +16,32 @@ export default class JobController {
 
   async getAll(req, res, next) {
     try {
-      let jobs = await _js.find({})
-      res.send(jobs)
+      let houses = await _hs.find({})
+      res.send(houses)
     } catch (error) { next(error) }
   }
   async getOne(req, res, next) {
     try {
-      let job = await _js.findById(req.params.id)
-      res.send(job)
+      let house = await _hs.findById(req.params.id)
+      res.send(house)
     } catch (error) { next(error) }
   }
   async create(req, res, next) {
     try {
-      let job = await _js.create(req.body)
-      res.send(job)
+      let house = await _hs.create(req.body)
+      res.send(house)
     } catch (error) { next(error) }
 
   }
   async update(req, res, next) {
     try {
-      let job = await _js.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
-      res.send(job)
+      let house = await _hs.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+      res.send(house)
     } catch (error) { next(error) }
   }
   async delete(req, res, next) {
     try {
-      let job = await _js.findOneAndRemove({ _id: req.params.id })
+      let house = await _hs.findOneAndRemove({ _id: req.params.id })
       res.send("Deleted")
 
     } catch (error) { next(error) }
